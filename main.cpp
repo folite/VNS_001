@@ -1,15 +1,17 @@
 /*
     變動臨域搜尋法（VNS）
     20170608
-    by zhang shu fu (folite)
+    by folite
 */
 #include<iostream>
 #include<stdlib.h>
+#include<time.h>
 
 using namespace std;
 
-int *Maternal;
+void twoPointSwap(int*, int*);
 
+int *Maternal;
 float Distance_table[8][8]={
     {000.0, 091.8, 105.2, 089.9, 189.9, 076.2, 278.3, 054.4},
     {000.0, 000.0, 187.2, 038.9, 271.3, 162.9, 363.3, 088.4},
@@ -25,9 +27,20 @@ int main(){
     
     return 0;
 }
+
+
+
 void init(){
     srand(time(NULL));
     for (int i = 0; i < 8; i++){
         *(Maternal + i) = i + 1; 
     }
+}
+
+//兩點位置交換
+void twoPointSwap(int* a1, int* a2){
+    int t;
+    t = *a1;
+    *a1 = *a2;
+    *a2 = t;
 }
